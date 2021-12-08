@@ -1,0 +1,32 @@
+class Solution {
+    public boolean checkPalindrome(char []charArray, int start,int end){
+     
+              while(start<=end){
+                  
+                    if(!(charArray[start]==charArray[end]))
+                        return false;
+                    
+                            start++;
+                             end--;
+                
+              
+    }
+          return true;
+    }
+    public boolean validPalindrome(String s) {
+             char [] charArray=s.toCharArray();
+        int start=0, end =charArray.length-1;
+               while(start<=end){
+                   if(!(charArray[start]==charArray[end])){
+                if(checkPalindrome(charArray,start+1,end)||checkPalindrome(charArray,start,end-1))
+                    return true;
+                        else
+                              return false;
+                   }
+                            start++;
+                             end--;
+            
+    }
+                return true;
+}
+}
