@@ -8,6 +8,23 @@ Explanation: The process is like: 3 + 8 = 11, 1 + 1 = 2.
              Since 2 has only one digit, return it.*/
 
 
+/*Optimal*/
+
+
+class Solution {
+    
+    public int addDigits(int num) {
+        
+if(num<10)
+    return num;
+        else
+          return addDigits((num%10)+(num/10));
+    }
+}
+
+
+
+
 public class AddTwoDigitTillDigitisOne {
     public static int addDigits(int num) {
     	
@@ -26,5 +43,30 @@ public class AddTwoDigitTillDigitisOne {
     	int num=38;
     	int ans=addDigits(num);
     	System.out.println(ans);
+    }
+}
+
+/*Alternative*/
+
+class Solution {
+    
+    public int addDigits(int num) {
+        
+return calculateSum(num);
+         
+        
+    }   
+     int calculateSum(int num){
+               int temp=0,sum=0;
+            String numString=String.valueOf(num);
+             char c1[]=numString.toCharArray();
+         for(char c:c1){
+            temp=Integer.parseInt(String.valueOf(c));
+            sum=sum+temp;
+           
+        }
+          return sum>9?calculateSum(sum):sum;
+ 
+
     }
 }
