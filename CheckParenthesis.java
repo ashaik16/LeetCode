@@ -1,4 +1,48 @@
 
+/*Optimal*/
+class Solution {
+    public boolean isValid(String s) {
+        if(s.length()%2!=0)
+            return false;
+    List<Character> openBracketList= new ArrayList<>();
+     openBracketList.add('(');
+     openBracketList.add('{');
+     openBracketList.add('[');
+    List<Character> closeBracketList= new ArrayList<>();
+     closeBracketList.add(')');
+     closeBracketList.add('}');
+     closeBracketList.add(']');
+      Stack<Character> stack = new Stack<>(); 
+
+        for(int i=0;i<s.length();i++){
+            if(openBracketList.contains(s.charAt(i)))
+                stack.add(s.charAt(i));
+            else
+            {
+                if(!stack.isEmpty())
+                {
+               char temp=closeBracketList.get(openBracketList.indexOf(stack.peek()));  
+                if(temp==s.charAt(i))
+                    stack.pop();
+                else
+                    return false;
+            }
+                else
+                    return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+}
+/*Alternative*/
+
+
+
+
+
+
+
+
 /*https://leetcode.com/problems/valid-parentheses/*/
 class Solution {
     public boolean isValid(String s) {
