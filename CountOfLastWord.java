@@ -14,9 +14,6 @@ class Solution {
 }
 /*Aletrnative*/
 
-
-
-
 public class CountOfLastWord {
 	public static int lengthOfLastWord(String s) {
       
